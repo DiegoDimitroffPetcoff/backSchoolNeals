@@ -1,15 +1,15 @@
+const app = require("./src/app/app");
+const connectDBS = require("./src/DBS/mongoose/connection");
+const { PORT } = require("./src/config.js/config");
 
-const app = require('./src/app/app')
-
-function activeServer() {
-    try {
-        // connectDBS()
-        app.listen(8080)
-        console.log("server active");
-    } catch (error) {
-        console.log(error);
-    }
+async function activeServer() {
+  try {
+    await connectDBS();
+    app.listen(PORT || 8080);
+    console.log("Server Connected");
+  } catch (error) {
+    console.log(error);
+  }
 }
 
-
-activeServer()
+activeServer();
