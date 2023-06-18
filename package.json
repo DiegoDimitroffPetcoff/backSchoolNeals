@@ -1,0 +1,22 @@
+{
+  "name": "backschoolneals",
+  "version": "1.0.0",
+  "description": "Backend to handle a School Website based on nails painting",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DiegoDimitroffPetcoff/backSchoolNeals.git"
+  },
+  "author": "Diego Dimitroff Petcoff",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DiegoDimitroffPetcoff/backSchoolNeals/issues"
+  },
+  "homepage": "https://github.com/DiegoDimitroffPetcoff/backSchoolNeals#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
