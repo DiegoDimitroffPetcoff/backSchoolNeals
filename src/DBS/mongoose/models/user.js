@@ -31,15 +31,7 @@ const UserSchemma = mongoose.Schema({
     alumn: { type: Boolean, required: true },
   },
   points: { type: Number, required: true, min: 0 },
-  course: {
-    type: [
-      {
-        id: { type: String },
-        content: { type: Array },
-        diplome: { type: String },
-      },
-    ],
-  },
+  course: { type: Array },
   avatar: { type: String },
 });
 
