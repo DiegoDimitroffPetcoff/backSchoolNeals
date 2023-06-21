@@ -1,17 +1,11 @@
 const mongoose = require("mongoose");
 
 const CoursesSchemma = mongoose.Schema({
-  course: {
-    type: [
-      {
-        id: { type: String, required: true },
-        name: { type: String, required: true },
-        content: { type: Array, required: true },
-        img: { type: String, required: true },
-        done: { type: Boolean, required: true },
-      },
-    ],
-  },
+
+  name: { type: String, required: true },
+  content: { type: Array, required: true },
+  img: { type: String, required: true },
+  done: { type: Boolean, required: true },
 });
 
 module.exports = mongoose.model("Courses", CoursesSchemma);
