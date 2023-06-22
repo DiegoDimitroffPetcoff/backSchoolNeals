@@ -3,7 +3,7 @@ const servicesCourses = require("../services/servicesCoureses");
 async function getAllCourses(req, res) {
   try {
     let allCoures = await servicesCourses.getAllCourses();
-    if (condition) {
+    if (allCoures) {
       res.status(200).json(allCoures);
     } else {
       res.status(404).json({ message: "Not couses Foud" });

@@ -10,12 +10,7 @@ const UserSchemma = mongoose.Schema({
   password: {
     type: String,
     required: true,
-    validate: {
-      validator: function (value) {
-        return value.lengh >= 6;
-      },
-      message: "The password should have at least 6 caracters",
-    },
+
   },
   docunment: {
     number: { type: Number, trim: true },
