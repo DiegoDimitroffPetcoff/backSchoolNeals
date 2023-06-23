@@ -36,10 +36,7 @@ async function postUser(req, res) {
 }
 async function editeUser(req, res) {
   try {
-    let userEdited = await servicesUsers.editeUser(
-      req.params.id,
-      req.body
-    );
+    let userEdited = await servicesUsers.editeUser(req.params.id, req.body);
     if (userEdited) {
       res.status(200).json(userEdited);
     } else {
@@ -61,6 +58,19 @@ async function deteleUser(req, res) {
     res.status(500).json(error);
   }
 }
+async function addCourse(req, res) {
+  try {
+    let courseAdded = await servicesUsers.addCourse(req.body);
+
+    if (courseAdded) {
+      res.status(200).json(courseAdded);
+    } else {
+      res.status(404).json({ error: "user not finded" });
+    }
+  } catch (error) {
+    res.status(500).json(error);
+  }
+}
 
 module.exports = {
   getAllUsers,
@@ -68,4 +78,5 @@ module.exports = {
   postUser,
   editeUser,
   deteleUser,
+  addCourse,
 };

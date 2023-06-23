@@ -1,4 +1,5 @@
 const User = require("../DBS/mongoose/models/User");
+const Course = require("../DBS/mongoose/models/course");
 
 postUser = async (data) => {
   try {
@@ -6,13 +7,12 @@ postUser = async (data) => {
       name: data.name,
       content: data.content,
       nickname: data.nickname,
-      password:data.password,
-      docunment:data.docunment,
-      contact:data.contact,
-      status:data.status,
-      points:data.points,
+      password: data.password,
+      docunment: data.docunment,
+      contact: data.contact,
+      status: data.status,
+      points: data.points,
       avatar: data.avatar,
-
     };
     const NewUser = new User(UserCreated);
     return await NewUser.save();
@@ -35,6 +35,21 @@ editeUser = async (id, data) => {
 deleteUser = async (id) => {
   return await User.findByIdAndDelete(id);
 };
+addCourse = async (data) => {
+  let courseToAdd = await Course.findById(data.courseId);
+  try {
+    let userUpdate = User.findByIdAndUpdate(
+      data.userId,
+      { $push: { course: courseToAdd } },
+      { new: true }
+    ).then(async (updatedUser) => {
+      userUpdated = await updatedUser;
+    });
+    return "Success";
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 module.exports = {
   postUser,
@@ -42,6 +57,7 @@ module.exports = {
   getByIdUsers,
   editeUser,
   deleteUser,
+  addCourse,
 };
 
 /* This is the model the client should send to post a new user
@@ -69,4 +85,4 @@ module.exports = {
   "course": [],
   "avatar":"avatars.dicebear.com/api/croodles/stefan.svg"
 }
-*/ 
+*/
