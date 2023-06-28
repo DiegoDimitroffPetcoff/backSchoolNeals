@@ -71,6 +71,19 @@ async function addCourse(req, res) {
     res.status(500).json(error);
   }
 }
+async function deleteCourse(req, res) {
+  try {
+    let deleteCourse = await servicesUsers.deleteCourse(req.body);
+
+    if (deleteCourse) {
+      res.status(200).json(deleteCourse);
+    } else {
+      res.status(404).json({ error: "user not finded" });
+    }
+  } catch (error) {
+    res.status(500).json(error);
+  }
+}
 
 module.exports = {
   getAllUsers,
@@ -79,4 +92,10 @@ module.exports = {
   editeUser,
   deteleUser,
   addCourse,
+  deleteCourse
 };
+/**
+This is an exaple about how the client should send the object to addCourse
+{"userId": "6494b386fcb116d4b08c6de0",
+"courseId": "649255b87e667053710d15e6"}
+ */

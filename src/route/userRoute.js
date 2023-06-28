@@ -10,5 +10,6 @@ route.patch("/user/:id", controlleruser.editeUser);
 route.delete("/user/:id", controlleruser.deteleUser);
 
 route.post("/addcourse", controlleruser.addCourse);
+route.delete("/deletecourse", controlleruser.deleteCourse);
 
 module.exports = route;

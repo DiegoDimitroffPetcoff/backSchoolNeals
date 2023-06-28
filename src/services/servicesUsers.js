@@ -1,5 +1,6 @@
 const User = require("../DBS/mongoose/models/User");
 const Course = require("../DBS/mongoose/models/course");
+const mongoose = require("mongoose");
 
 postUser = async (data) => {
   try {
@@ -42,10 +43,25 @@ addCourse = async (data) => {
       data.userId,
       { $push: { course: courseToAdd } },
       { new: true }
-    ).then(async (updatedUser) => {
-      userUpdated = await updatedUser;
-    });
-    return "Success";
+    );
+    return userUpdate;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+deleteCourse = async (data) => {
+  try {
+    const courseId = new mongoose.Types.ObjectId(data.courseId);
+    let userUpdate = await User.findByIdAndUpdate(
+      { _id: data.userId },
+      {
+        $pull: { course: { _id: courseId } },
+      },
+      { new: true }
+    );
+
+    return userUpdate;
   } catch (error) {
     console.log(error);
   }
@@ -58,6 +74,7 @@ module.exports = {
   editeUser,
   deleteUser,
   addCourse,
+  deleteCourse,
 };
 
 /* This is the model the client should send to post a new user
@@ -85,4 +102,11 @@ module.exports = {
   "course": [],
   "avatar":"avatars.dicebear.com/api/croodles/stefan.svg"
 }
+
+
+
+TO DELETE OR ADD A COURSE.. DE CLIENT SHOULD SEND THIS KIND OF OBJECT:
+{"userId": "6494f4633873e4b6770efc33",
+"courseId": "649255b87e667053710d15e6"}
+
 */
