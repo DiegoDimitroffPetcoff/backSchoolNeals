@@ -1,4 +1,4 @@
-const User = require("../DBS/mongoose/models/User");
+const User = require("../DBS/mongoose/models/user");
 const Course = require("../DBS/mongoose/models/course");
 const mongoose = require("mongoose");
 
