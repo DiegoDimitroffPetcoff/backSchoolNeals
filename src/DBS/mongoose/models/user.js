@@ -12,7 +12,7 @@ const UserSchemma = mongoose.Schema({
     required: true,
 
   },
-  docunment: {
+  document: {
     number: { type: Number, trim: true },
     typeOf: { type: String, trim: true },
   },

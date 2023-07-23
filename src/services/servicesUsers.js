@@ -85,7 +85,7 @@ module.exports = {
   },
   "nickname": "Dimii",
   "password":"98124091340913249071294",
-  "docunment": {
+  "document": {
     "number": 34703057,
     "typeOf": "DNI"
   },
