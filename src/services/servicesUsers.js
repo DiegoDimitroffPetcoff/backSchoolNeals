@@ -1,14 +1,16 @@
 const User = require("../DBS/mongoose/models/user");
 const Course = require("../DBS/mongoose/models/course");
 const mongoose = require("mongoose");
+const {encrypt} = require("../utils/handleBcrypt")
 
 postUser = async (data) => {
+const passwordEncrypted = encrypt(data.password)
   try {
     const UserCreated = {
       name: data.name,
       content: data.content,
       nickname: data.nickname,
-      password: data.password,
+      password: passwordEncrypted,
       docunment: data.docunment,
       contact: data.contact,
       status: data.status,
