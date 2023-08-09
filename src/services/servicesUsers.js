@@ -10,7 +10,7 @@ const passwordEncrypted = encrypt(data.password)
       name: data.name,
       content: data.content,
       nickname: data.nickname,
-      password: passwordEncrypted,
+      password: data.password,
       docunment: data.docunment,
       contact: data.contact,
       status: data.status,
