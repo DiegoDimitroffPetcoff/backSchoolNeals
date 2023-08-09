@@ -4,11 +4,11 @@ const mongoose = require("mongoose");
 
 getByIdUsers = async (data) => {
 
-  console.log("data desde service");
-  console.log(data);
+;
 
 const { nickname, password } = data;
-
+console.log(nickname);
+console.log(password)
 try {
   const user = await User.findOne({ nickname, password });
   if (user) {
