@@ -4,7 +4,8 @@
   "description": "Backend to handle a School Website based on nails painting",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js",
+    "nodemon": "nodemon index.js"
   },
   "repository": {
     "type": "git",

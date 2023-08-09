@@ -20,6 +20,7 @@ const UserSchemma = mongoose.Schema({
     cellPhone: { type: Number, trim: true },
     emergencyPhone: { type: Number, trim: true },
     email: { type: String, trim: true, required: true },
+    sendInformation: { type: Boolean }
   },
   status: {
     admin: { type: Boolean },
