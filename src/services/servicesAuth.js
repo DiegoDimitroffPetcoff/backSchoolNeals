@@ -10,18 +10,15 @@ const { nickname, password } = data;
 try {
   const user = await User.findOne({ nickname});
   if (user) {
-    console.log(password) 
-    console.log(user.password) 
+
     let checkPassword = await compare(password, user.password)
     
   if (checkPassword){
 
-    console.log("PASO EL CHECKPASSWORD") 
-  let tokenSession = tokenSign(user)
+  let tokenSession = await tokenSign(user)
+  //solo queda corroborar el tokenSession cfuncione
   console.log("tokenSession:") 
   console.log(tokenSession) 
-  console.log("user:") 
-  console.log(user) 
   return {user, tokenSession};}
   } else {
 return null
