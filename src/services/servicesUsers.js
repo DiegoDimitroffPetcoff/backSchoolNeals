@@ -21,8 +21,9 @@ const passwordEncrypted = await encrypt(data.password)
     };
     const NewUser = new User(UserCreated);
     await NewUser.save()
+    console.log(NewUser);
     let tokenSession = await tokenSign(NewUser)
-    return {user, tokenSession}
+    return {NewUser, tokenSession}
 
   } catch (error) {
     console.log(error);
