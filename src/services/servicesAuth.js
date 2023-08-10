@@ -4,7 +4,7 @@ const {compare} = require("../utils/handleBcrypt");
 const tokenSign = require("../utils/handleJwt");
 
 
-getByIdUsers = async (data) => {
+getAuthUser = async (data) => {
 const { nickname, password } = data;
 
 try {
@@ -24,6 +24,6 @@ return null
 };
 
 module.exports = {
-  getByIdUsers
+  getAuthUser
 };
 

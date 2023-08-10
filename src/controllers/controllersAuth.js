@@ -1,8 +1,8 @@
-const servicesUsers = require("../services/servicesAuth");
+const servicesAuth = require("../services/servicesAuth");
 
-async function getByIdUser(req, res) {
+async function getAuthUser(req, res) {
   try {
-    let userById = await servicesUsers.getByIdUsers(req.body);
+    let userById = await servicesAuth.getAuthUser(req.body);
     if (userById) {
       res.status(200).json(userById);
     } else {
@@ -13,6 +13,6 @@ async function getByIdUser(req, res) {
 
 module.exports = {
 
-  getByIdUser,
+  getAuthUser,
 
 };
