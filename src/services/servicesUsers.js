@@ -14,7 +14,7 @@ const passwordEncrypted = await encrypt(data.password)
       password: passwordEncrypted,
       docunment: data.docunment,
       contact: data.contact,
-      status: data.status,
+      role: data.role,
       points: data.points,
       avatar: data.avatar,
     };
