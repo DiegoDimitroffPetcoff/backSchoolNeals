@@ -1,14 +1,18 @@
 const User = require("../DBS/mongoose/models/user");
 const mongoose = require("mongoose");
+const {compare} = require("../utils/handleBcrypt")
 
 
 getByIdUsers = async (data) => {
 const { nickname, password } = data;
 
 try {
-  const user = await User.findOne({ nickname, password });
+  const user = await User.findOne({ nickname});
   if (user) {
-    return user;
+    let checkPassword = await compare(password, user.password)
+    console.log(checkPassword);
+    if (checkPassword){return user;}
+
   } else {
 return null
   }
