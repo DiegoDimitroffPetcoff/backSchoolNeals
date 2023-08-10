@@ -10,9 +10,8 @@ try {
   const user = await User.findOne({ nickname});
   if (user) {
     let checkPassword = await compare(password, user.password)
-    console.log(checkPassword);
-    if (checkPassword){return user;}
-
+  if (checkPassword)
+  {return user;}
   } else {
 return null
   }
@@ -20,8 +19,6 @@ return null
   res.status(500).json({ message: "Error del servidor" });
 }
 };
-
-
 
 module.exports = {
   getByIdUsers
