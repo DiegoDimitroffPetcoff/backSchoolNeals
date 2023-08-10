@@ -23,7 +23,7 @@ const passwordEncrypted = await encrypt(data.password)
     await user.save()
 
     let tokenSession = await tokenSign(user)
-    return {user, tokenSession};}
+    return {user, tokenSession};
 
   } catch (error) {
     console.log(error);
