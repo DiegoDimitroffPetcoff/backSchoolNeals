@@ -11,7 +11,7 @@ try {
   const user = await User.findOne({ nickname});
   if (user) {
     let checkPassword = await compare(password, user.password)
-
+    console.log(checkPassword) 
   if (checkPassword){
 
     console.log("PASO EL CHECKPASSWORD") 
