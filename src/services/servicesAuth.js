@@ -1,6 +1,7 @@
 const User = require("../DBS/mongoose/models/user");
 const mongoose = require("mongoose");
-const {compare} = require("../utils/handleBcrypt")
+const {compare} = require("../utils/handleBcrypt");
+const tokenSign = require("../utils/handleJwt");
 
 
 getByIdUsers = async (data) => {
@@ -10,8 +11,10 @@ try {
   const user = await User.findOne({ nickname});
   if (user) {
     let checkPassword = await compare(password, user.password)
-  if (checkPassword)
-  {return user;}
+
+  if (checkPassword){
+  let tokenSession = tokenSign(user)
+  return {user, tokenSession};}
   } else {
 return null
   }

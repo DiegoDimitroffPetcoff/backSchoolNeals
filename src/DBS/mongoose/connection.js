@@ -7,6 +7,7 @@ async function connectDBS() {
     console.log("Mongo DBS connected");
 
   } catch (error) {
+
     console.log(error);
   }
 }

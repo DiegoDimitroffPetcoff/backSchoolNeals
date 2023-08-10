@@ -22,10 +22,7 @@ const UserSchemma = mongoose.Schema({
     email: { type: String, trim: true, required: true },
     sendInformation: { type: Boolean }
   },
-  status: {
-    admin: { type: Boolean },
-    alumn: { type: Boolean, required: true },
-  },
+  role: {type:String},
   points: { type: Number, required: true, min: 0 },
   course: { type: Array },
   avatar: { type: String },
