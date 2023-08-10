@@ -19,11 +19,11 @@ const passwordEncrypted = await encrypt(data.password)
       points: data.points,
       avatar: data.avatar,
     };
-    const NewUser = new User(UserCreated);
-    await NewUser.save()
-    console.log(NewUser);
-    let tokenSession = await tokenSign(NewUser)
-    return {NewUser, tokenSession}
+    const user = new User(UserCreated);
+    await user.save()
+
+    let tokenSession = await tokenSign(user)
+    return {user, tokenSession};}
 
   } catch (error) {
     console.log(error);
