@@ -10,8 +10,10 @@ const { nickname, password } = data;
 try {
   const user = await User.findOne({ nickname});
   if (user) {
+    console.log(password) 
+    console.log(user.password) 
     let checkPassword = await compare(password, user.password)
-    console.log(checkPassword) 
+    
   if (checkPassword){
 
     console.log("PASO EL CHECKPASSWORD") 
