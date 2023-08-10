@@ -16,9 +16,7 @@ try {
   if (checkPassword){
 
   let tokenSession = await tokenSign(user)
-  //solo queda corroborar el tokenSession cfuncione
-  console.log("tokenSession:") 
-  console.log(tokenSession) 
+//i sent the user and the tokenSession
   return {user, tokenSession};}
   } else {
 return null
