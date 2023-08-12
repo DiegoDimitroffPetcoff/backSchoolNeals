@@ -6,13 +6,13 @@ const tokenSign = require("../utils/handleJwt");
 
 getAuthUser = async (data) => {
 const { nickname, password } = data;
-
+console.log("LLEGA AL SERVICE");
 try {
   const user = await User.findOne({ nickname});
   if (user) {
 
     let checkPassword = await compare(password, user.password)
-    
+    console.log(checkPassword);
   if (checkPassword){
 
   let tokenSession = await tokenSign(user)
