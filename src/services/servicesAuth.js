@@ -1,7 +1,7 @@
 const User = require("../DBS/mongoose/models/user");
 const mongoose = require("mongoose");
 const {compare} = require("../utils/handleBcrypt");
-const tokenSign = require("../utils/handleJwt");
+const {tokenSign} = require("../utils/handleJwt");
 
 
 getAuthUser = async (data) => {
