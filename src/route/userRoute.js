@@ -1,8 +1,9 @@
 const { Router } = require("express");
 const route = Router();
 const controlleruser = require("../controllers/controllersUsers");
+const checkAuth = require("../middleWare/checkAuth")
 
-route.get("/user", controlleruser.getAllUsers);
+route.get("/user", checkAuth, controlleruser.getAllUsers);
 route.get("/user/:id", controlleruser.getByIdUser);
 route.post("/user", controlleruser.postUser);
 

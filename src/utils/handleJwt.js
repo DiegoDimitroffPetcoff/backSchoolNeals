@@ -14,4 +14,13 @@ const tokenSign = async (user)=>{
         )
 }
 
-module.exports = tokenSign;
+const verifyToken = async (token)=> {
+   try {
+    return jwt.verify(token,JWT_SECRET)
+   } catch (e) {
+    console.log("ERROR ENVIADO DESDE habdleJwt.js backend");
+    console.log(e);
+    return null
+   } 
+}
+module.exports = {tokenSign, verifyToken}
