@@ -14,10 +14,9 @@ try {
     let checkPassword = await compare(password, user.password)
 
   if (checkPassword){
-
+console.log(user);
   let tokenSession = await tokenSign(user)
-  console.log(user);
-  console.log(tokenSession);
+
 //i sent the user and the tokenSession
   return {user, tokenSession};}
   } else {
