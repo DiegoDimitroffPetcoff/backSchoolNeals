@@ -5,6 +5,7 @@ const checkAuth = async (req, res, next)=>{
         const token = req.headers.authorization.split(" ").pop();
         console.log('TOKEN ENVIADO DESDE CHECKAUTH BACK:');
         console.log(token);
+        next()
     } catch (error) {
         res.status(405)
         res.send({error: "FALTA EL TOKEN"})
