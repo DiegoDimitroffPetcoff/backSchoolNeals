@@ -7,8 +7,8 @@ route.get("/user", checkAuth, controlleruser.getAllUsers);
 route.get("/user/:id", controlleruser.getByIdUser);
 route.post("/user", controlleruser.postUser);
 
-route.patch("/user/:id", controlleruser.editeUser);
-route.delete("/user/:id", controlleruser.deteleUser);
+route.patch("/user/:id", checkAuth, controlleruser.editeUser);
+route.delete("/user/:id", checkAuth, controlleruser.deteleUser);
 
 route.post("/addcourse", controlleruser.addCourse);
 route.delete("/deletecourse", controlleruser.deleteCourse);
