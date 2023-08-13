@@ -2,7 +2,7 @@ const { verifyToken } = require("../utils/handleJwt");
 
 const checkAuth = async (req, res, next) => {
   try {
-    const cookieHeader = req.headers.cookie;
+    const cookieHeader = req.headers;
     console.log(cookieHeader);
     const token = JSON.parse(
       decodeURIComponent(cookieHeader.split("userData=")[1])
