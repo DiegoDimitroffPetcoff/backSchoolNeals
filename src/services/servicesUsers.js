@@ -2,7 +2,7 @@ const User = require("../DBS/mongoose/models/user");
 const Course = require("../DBS/mongoose/models/course");
 const mongoose = require("mongoose");
 const {encrypt} = require("../utils/handleBcrypt")
-const tokenSign = require("../utils/handleJwt");
+const {tokenSign} = require("../utils/handleJwt");
 
 postUser = async (data) => {
 const passwordEncrypted = await encrypt(data.password)
