@@ -23,7 +23,7 @@ getByIdCourses = async (id) => {
   return await Course.findById(id);
 };
 
-editeCourse = async (id, data) => {
+editeWhoWeAre = async (id, data) => {
   return await Course.findByIdAndUpdate(id, data, { new: true });
 };
 deleteCourse = async (id) => {
@@ -32,7 +32,8 @@ deleteCourse = async (id) => {
 
 module.exports = {
   getAllWhoWeAre,
-  postWhoWeAre
+  postWhoWeAre,
+  editeWhoWeAre
 };
 
 

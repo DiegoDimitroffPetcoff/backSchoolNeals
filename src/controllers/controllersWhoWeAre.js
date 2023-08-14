@@ -26,9 +26,25 @@ async function postWhoWeAre(req, res) {
   }
 }
 
+async function editeWhoWeAre(req, res) {
+  try {
+    let WhoWeAreEdited = await servicesWhoWeAre.editeWhoWeAre(
+      req.params.id,
+      req.body
+    );
+    if (WhoWeAreEdited) {
+      res.status(200).json(WhoWeAreEdited);
+    } else {
+      res.status(404).json({ message: "Information not Foud to Edite" });
+    }
+  } catch (error) {
+    res.status(500).json(error);
+  }
+}
 
 module.exports = {
   getWhoWeAre,
-  postWhoWeAre
+  postWhoWeAre,
+  editeWhoWeAre
 
 };
