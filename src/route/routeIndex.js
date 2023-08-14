@@ -13,4 +13,6 @@ route.delete('/courses/:id',controllerCourses.deteleCourse)
 
 route.get('/whoweare',controllerWhoWeAre.getWhoWeAre)
 
+route.post('/whoweare',controllerWhoWeAre.postWhoWeAre)
+
 module.exports= route

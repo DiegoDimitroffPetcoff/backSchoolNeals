@@ -13,8 +13,22 @@ async function getWhoWeAre(req, res) {
   }
 }
 
+async function postWhoWeAre(req, res) {
+  try {
+    let allWhoWeAre = await servicesWhoWeAre.postWhoWeAre(req.body);
+    if (allWhoWeAre) {
+      res.status(200).json(allWhoWeAre);
+    } else {
+      res.status(404).json({ message: "Module not Founded" });
+    }
+  } catch (error) {
+    res.status(500).json(error);
+  }
+}
+
 
 module.exports = {
   getWhoWeAre,
+  postWhoWeAre
 
 };

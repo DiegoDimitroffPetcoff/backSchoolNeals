@@ -3,10 +3,10 @@ const WhoWeAre = require("../DBS/mongoose/models/whoWeAreInfo");
 postWhoWeAre = async (data) => {
   try {
     const WhoWeAre = {
-      name: data.name,
-      content: data.content,
-      img: data.img,
-      done: false,
+      title: data.title,
+      subTitle: data.subTitle,
+      text: data.text,
+
     };
     const NewWhoWeAre = new WhoWeAre(WhoWeAre);
     return await NewWhoWeAre.save();
@@ -31,7 +31,8 @@ deleteCourse = async (id) => {
 };
 
 module.exports = {
-  getAllWhoWeAre
+  getAllWhoWeAre,
+  postWhoWeAre
 };
 
 
