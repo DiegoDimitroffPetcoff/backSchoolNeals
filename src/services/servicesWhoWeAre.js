@@ -20,14 +20,14 @@ getAllWhoWeAre = async () => {
 };
 
 getByIdCourses = async (id) => {
-  return await Course.findById(id);
+  return await WhoWeAreSchema.findById(id);
 };
 
 editeWhoWeAre = async (id, data) => {
-  return await Course.findByIdAndUpdate(id, data, { new: true });
+  return await WhoWeAreSchema.findByIdAndUpdate(id, data, { new: true });
 };
 deleteCourse = async (id) => {
-  return await Course.findByIdAndDelete(id);
+  return await WhoWeAreSchema.findByIdAndDelete(id);
 };
 
 module.exports = {
