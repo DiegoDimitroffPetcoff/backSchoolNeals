@@ -1,4 +1,4 @@
-const WhoWeAre = require("../DBS/mongoose/models/whoWeAreInfo");
+const WhoWeAreSchema = require("../DBS/mongoose/models/whoWeAreInfo");
 
 postWhoWeAre = async (data) => {
   try {
@@ -8,7 +8,7 @@ postWhoWeAre = async (data) => {
       text: data.text,
 
     };
-    const NewWhoWeAre = new WhoWeAre(WhoWeAre);
+    const NewWhoWeAre = new WhoWeAreSchema(WhoWeAre);
     return await NewWhoWeAre.save();
   } catch (error) {
     console.log(error);
@@ -16,7 +16,7 @@ postWhoWeAre = async (data) => {
 };
 
 getAllWhoWeAre = async () => {
-  return await WhoWeAre.find();
+  return await WhoWeAreSchema.find();
 };
 
 getByIdCourses = async (id) => {
