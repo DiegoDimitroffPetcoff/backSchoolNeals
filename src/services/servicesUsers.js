@@ -6,7 +6,7 @@ const {tokenSign} = require("../utils/handleJwt");
 
 postUser = async (data) => {
 const passwordEncrypted = await encrypt(data.password)
-
+console.log(req.files);
   try {
     const UserCreated = {
       name: data.name,
