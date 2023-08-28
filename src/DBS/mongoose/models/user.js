@@ -26,6 +26,7 @@ const UserSchemma = mongoose.Schema({
   points: { type: Number, required: true, min: 0 },
   course: { type: Array },
   avatar: { type: String },
+  file:{type:String, required: false}
 });
 
 module.exports = mongoose.model("users", UserSchemma);

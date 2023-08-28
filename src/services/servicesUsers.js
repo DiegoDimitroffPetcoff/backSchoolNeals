@@ -19,6 +19,7 @@ console.log("INFORMACION:::")
       role: data.role,
       points: data.points,
       avatar: data.avatar,
+      file:data.file
     };
     const user = new User(UserCreated);
     await user.save()
